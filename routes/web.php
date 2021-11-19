@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PizzahouseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,22 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/pizzas', function () {
-    $name = request('name');
-    $data = [
-        ['name'=>'soulaimane yahya',
-        'username'=>'soulaimane.yh',
-        'email'=>'soulaimane.yahya@usmba.ac.ma',],
-        ['name'=>'zakaria yahya',
-        'username'=>'zakaria.yh',
-        'email'=>'yakaria.yahya@uabms.ac.ma',],
-        ['name'=>'omnia el faidli',
-        'username'=>'omnia.el',
-        'email'=>'omnia.el@gmail.com'],
-    ];
-    return view('pizzas',[
-        'data' => $data,
-        'name' => $name,
-    ]);
-});
+Route::GET('/pizzas', [PizzahouseController::class,'index'])->name('pizzas.index');
+Route::get('/pizzas/{id}', [PizzahouseController::class,'details'])->where('id', '[0-9]+')->name('pizzas.details');

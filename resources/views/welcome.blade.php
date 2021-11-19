@@ -1,27 +1,25 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
+@extends('layouts.layout')
 
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    
-                </div>
+@section('content')
 
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    
-                </div>
-            </div>
+  <!-- main image & welcome text -->
+  <section id="welcome">
+    <div class="container-lg">
+      <div class="row g-4 justify-content-center align-items-center">
+        <div class="col-md-5 text-center text-md-start">
+          <h1>
+            <div class="display-2 title">Pizza House</div>
+            <div class="display-5 text-muted">The North's Best Pizza</div>
+          </h1>
+          <a href="/pizzas" class="btn btn-secondary btn-lg">Order</a>
         </div>
-    </body>
-</html>
+        <div class="col-md-5 text-center d-none d-md-block">
+          <!-- tooltip -->
+          <span class="tl" data-bs-placement="bottom" title="Pizza House">
+            <img src="/img/pizza-house.png" class="img-fluid" alt="Pizza House">
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+@endsection

@@ -18,9 +18,20 @@ Route::get('/', function () {
 });
 
 Route::get('/pizzas', function () {
+    $name = request('name');
     $data = [
-        'name'=>'soulaimane yahya',
-        'email'=>'soulaimane.yahya@usmba.ac.ma',
+        ['name'=>'soulaimane yahya',
+        'username'=>'soulaimane.yh',
+        'email'=>'soulaimane.yahya@usmba.ac.ma',],
+        ['name'=>'zakaria yahya',
+        'username'=>'zakaria.yh',
+        'email'=>'yakaria.yahya@uabms.ac.ma',],
+        ['name'=>'omnia el faidli',
+        'username'=>'omnia.el',
+        'email'=>'omnia.el@gmail.com'],
     ];
-    return view('pizzas',$data);
+    return view('pizzas',[
+        'data' => $data,
+        'name' => $name,
+    ]);
 });

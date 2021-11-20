@@ -13,7 +13,7 @@ class PizzaHouseRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class PizzaHouseRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:3|max:30',
+            'city' => 'required|min:3|max:30',
+            'state' => 'required|min:3|max:30',
+            'phone' => 'required|min:3|max:10',
+            'base' => 'required',
+            'type' => 'required',
         ];
     }
 }

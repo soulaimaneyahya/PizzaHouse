@@ -21,23 +21,23 @@ class PizzahouseController extends Controller
     public function order(){
         return view('pizzas.order');
     }
-    public function store() {
+    public function store(PizzaHouseRequest $request) {
         $pizza = new pizzahouse();
 
         $pizza->name = request('name');
-        $pizza->type = request('type');
-        $pizza->base = request('base');
-
         $pizza->phone = request('phone');
         $pizza->city = request('city');
+        $pizza->state = request('state');
+        $pizza->base = request('base');
+        $pizza->type = request('type');
 
         // get price depend on quantity type
         if(request('type') === '1' ):
-            $pizza->price = '38';
+            $pizza->price = '100';
         elseif(request('type') === '2' ):
-            $pizza->price = '76';
+            $pizza->price = '120';
         else:
-            $pizza->price = '99';
+            $pizza->price = '150';
         endif;
     
         $pizza->save();

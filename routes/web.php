@@ -17,5 +17,9 @@ use App\Http\Controllers\PizzahouseController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::GET('/pizzas', [PizzahouseController::class,'index'])->name('pizzas.index');
-Route::get('/pizzas/{id}', [PizzahouseController::class,'details'])->where('id', '[0-9]+')->name('pizzas.details');
+Route::GET('/order', [PizzahouseController::class,'order'])->name('pizzas.order');
+Route::POST('/order', [PizzahouseController::class,'store'])->name('pizzas.store');
+
+//Admin Panel
+Route::GET('/pizzas', [PizzahouseController::class,'index'])->name('admin.index');
+Route::GET('/pizzas/{id}', [PizzahouseController::class,'details'])->where('id', '[0-9]+')->name('admin.details');

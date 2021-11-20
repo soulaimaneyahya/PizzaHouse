@@ -11,7 +11,7 @@
             <div class="display-2 title">Pizza House</div>
             <div class="display-5 text-muted">The North's Best Pizza</div>
           </h1>
-          <a href="{{ route('pizzas.index') }}" class="btn btn-secondary btn-lg">Order</a>
+          <a href="{{ route('pizzas.order') }}" class="btn btn-secondary btn-lg">Order</a>
         </div>
         <div class="col-md-5 text-center d-none d-md-block">
           <!-- tooltip -->

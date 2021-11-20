@@ -15,6 +15,13 @@ class CreatePizzahousesTable extends Migration
     {
         Schema::create('pizzahouses', function (Blueprint $table) {
             $table->id();
+            $table->string('type',30);
+            $table->string('base',30);
+            $table->string('name',30);
+            $table->string('city',20);
+            $table->string('phone',10);
+            $table->decimal('price',8,2);
+            $table->datetime('deleted_at')->nullable();
             $table->timestamps();
         });
     }

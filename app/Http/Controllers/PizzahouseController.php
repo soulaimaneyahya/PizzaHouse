@@ -10,10 +10,6 @@ class PizzahouseController extends Controller
 {
     // Admin Side
     public function index(){
-        // $pizzas = pizzahouse::all();
-        // $pizzas = pizzahouse::orderBy('name','asc')->get();
-        // $pizzas = pizzahouse::where('type','medium')->get();
-        // $pizzas = pizzahouse::latest()->get();
     	$pizzas = pizzahouse::join('type', 'pizzahouses.type', '=', 'type.id')
         ->join('base', 'base.id', '=', 'pizzahouses.base')
         ->get(['pizzahouses.*', 'type.type', 'base.base']);
@@ -40,6 +36,31 @@ class PizzahouseController extends Controller
         $values = array('payment' => $payment );
         DB::table('pizzahouses')->where('id',$id)->update($values);
         return redirect('/pizzas');
+    }
+    function fulfilledUpdate($id)
+    {
+        //get fulfilled with the help of pizza ID
+        $pizza = DB::table('pizzahouses')
+                    ->select('fulfilled')
+                    ->where('id','=',$id)
+                    ->first();
+
+        //Check user fulfilled
+        if($pizza->fulfilled == '1'):
+            $fulfilled = '0';
+        else:
+            $fulfilled = '1';
+        endif;
+
+        //update pizza fulfilled
+        $values = array('fulfilled' => $fulfilled );
+        DB::table('pizzahouses')->where('id',$id)->update($values);
+        return redirect('/pizzas');
+    }
+    public function edit($id){
+    	$pizzas = pizzahouse::findOrFail($id);
+
+        return view('admin.edit',['pizzas' => $pizzas]);
     }
 
     // Customer Side

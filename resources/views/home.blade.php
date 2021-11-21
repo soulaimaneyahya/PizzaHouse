@@ -15,7 +15,7 @@
                     @endif
                     {{ __('You are logged in!') }}
                     <h3 class="my-3">Welcome back <span class="text-muted" >{{ucwords( Auth::user()->name) }}</span></h3>
-                    <p><a href="{{ route('admin.index') }}" class="btn btn-secondary"><i class="bi bi-clipboard-data"></i> &nbsp; Dashboard</a></p>
+                    <p><a href="{{ route('admin.index') }}" class="btn btn-secondary"><i class="bi bi-table"></i> &nbsp; Pizzas Orders</a></p>
                 </div>
             </div>
         </div>

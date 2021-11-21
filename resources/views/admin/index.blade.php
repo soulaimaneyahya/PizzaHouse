@@ -3,10 +3,13 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
-                <div class="card">
-                    <h5 class="card-header">{{ __('Pizzas Orders') }}</h5>
-                    <div class="card-body">
+            <div class="col-md-10 mb-5">
+                <div class="card mb-5">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="d-inline">Pizzas Orders</h5>
+                        <a href="{{route('home')}}"  class="btn btn-secondary">Back</a>
+                    </div>
+                    <div class="card-body px-4">
                         <table class="table">
                             <thead>
                               <tr>
@@ -39,13 +42,22 @@
                                             <a href="{{url('/pizzas/payment-update',$pizza->id)}}" class="btn btn-danger btn-sm">Unpaid</a>
                                         @php endif; @endphp
                                     </td>
-
                                     <td>
-                                        <button type="button" class="btn btn-secondary btn-sm">Unfulfilled</button>
+                                        @php if(($pizza->fulfilled) == "1"): @endphp
+                                            <a href="{{url('/pizzas/fulfilled-update',$pizza->id)}}" class="btn btn-secondary btn-sm">Fulfilled</a>
+                                        @php elseif(($pizza->fulfilled) == "0"): @endphp
+                                            <a href="{{url('/pizzas/fulfilled-update',$pizza->id)}}" class="btn btn-secondary btn-sm">Unfulfilled</a>
+                                        @php endif; @endphp
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-square"></i></button>
-                                        <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-printer"></i></button>
+                                        <!-- tooltip -->
+                                        <span class="tl" data-bs-placement="bottom" title="Edit Order">
+                                            <a href="{{route('admin.edit',$pizza->id)}}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-square"></i></a>
+                                        </span>
+                                        <!-- tooltip -->
+                                        <span class="tl" data-bs-placement="bottom" title="Print Order">
+                                            <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-printer"></i></button>
+                                        </span>
                                     </td>
                                 </tr>
                                 @endforeach

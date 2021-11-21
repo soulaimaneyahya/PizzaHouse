@@ -16,13 +16,6 @@ footer{
   font-weight:bold;
 }
 
-.btn-primary{
-  background: rgba(50, 50, 255, 0.103) !important;
-  color: rgb(0, 0, 158) !important;
-  border:none !important;
-  outline: none !important;
-}
-
 .btn-success{
   background: rgba(50, 255, 84, 0.103) !important;
   color: rgb(37, 158, 0) !important;

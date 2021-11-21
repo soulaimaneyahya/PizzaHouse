@@ -32,7 +32,15 @@
                                     <td>{{$pizza->created_at}}</td>
                                     <td>{{$pizza->type}}</td>
                                     <td>{{$pizza->price}}$</td>
-                                    <td><button type="button" class="btn btn-success btn-sm">Paid</button></td>
+                                    <td>
+
+                                        @php if(($pizza->payment) == "0"): @endphp
+                                            <a href="{{url('/pizzas/payment-update',$pizza->id)}}" class="btn btn-success btn-sm">Paid</a>
+                                        @php elseif(($pizza->payment) == "1"): @endphp
+                                            <a href="{{url('/pizzas/payment-update',$pizza->id)}}" class="btn btn-danger btn-sm">Unpaid</a>
+                                        @php endif; @endphp
+                                    </td>
+
                                     <td>
                                         <button type="button" class="btn btn-secondary btn-sm">Unfulfilled</button>
                                     </td>

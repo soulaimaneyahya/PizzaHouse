@@ -14,7 +14,7 @@ use App\Http\Controllers\PizzahouseController;
 |
 */
 
-Route::get('/', function () {
+Route::GET('/', function () {
     return view('welcome');
 });
 Route::GET('/order', [PizzahouseController::class,'order'])->name('pizzas.order');
@@ -25,5 +25,6 @@ Auth::routes(
     ['register' => false]
 );
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::GET('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::GET('/pizzas', [PizzahouseController::class,'index'])->name('admin.index')->middleware('auth');
+Route::GET('/pizzas/payment-update/{id}', [PizzahouseController::class,'PaymentUpdate'])->name('admin.PaymentUpdate')->middleware('auth');

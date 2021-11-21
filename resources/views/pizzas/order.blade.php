@@ -80,7 +80,7 @@
                             </div>
                         </div>
                         <div class="align-content-center my-2">
-                                <button id="price" class="btn">120$</button>
+                                <button id="price" class="btn btn-secondary">120$</button>
                                 <button type="submit" name="buy" class="btn btn-secondary">Buy Now</button>
                             </form>
                         </div>

@@ -13,7 +13,7 @@
           </h1>
           <a href="{{ route('pizzas.order') }}" class="btn btn-secondary btn-lg">Order</a>
         </div>
-        <div class="col-md-5 text-center d-none d-md-block">
+        <div class="col-md-5 text-center d-md-block">
           <!-- tooltip -->
           <span class="tl" data-bs-placement="bottom" title="Pizza House">
             <img src="/img/pizza-house.png" class="img-fluid" alt="Pizza House">

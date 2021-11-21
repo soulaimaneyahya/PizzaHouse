@@ -59,7 +59,6 @@ class PizzahouseController extends Controller
     }
     public function edit($id){
     	$pizzas = pizzahouse::findOrFail($id);
-
         return view('admin.edit',['pizzas' => $pizzas]);
     }
 

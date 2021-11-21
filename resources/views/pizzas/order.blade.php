@@ -6,11 +6,12 @@
         <div class="row g-4 justify-content-center">
             <div class="col-md-10 text-center text-md-start">
                 <div class="display-6 title mb-3">Order Pizza</div>
-                <h5 class="sub-title mb-3 text-muted">Please enter your details below to complete your order</h5>
                 @if($message = Session::get('Thanks'))
                     <div class="alert alert-success p-2">
                         {{ $message }}
                     </div>
+                @else
+                <h5 class="sub-title mb-3 text-muted">Please enter your details below to complete your order</h5>
                 @endif
                 <form action="{{ route('pizzas.store') }}" method="POST" class="form mb-5">
                     @CSRF
@@ -79,17 +80,12 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="align-content-center my-2">
-                                <button id="price" class="btn btn-secondary">120$</button>
-                                <button type="submit" name="buy" class="btn btn-secondary">Buy Now</button>
-                            </form>
-                        </div>
                     </div>
                     <div class="col-md-3">
                     <fieldset>
                         <label class="my-2"><h3>Extra toppings</h3></label>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="toppings[]" value="11" id="defaultCheck1">
+                            <input type="checkbox" class="form-check-input" name="toppings[]" value="1" id="defaultCheck1">
                             <label class="form-check-label" for="defaultCheck1">
                               Mushrooms
                             </label>
@@ -113,6 +109,12 @@
                             </label>
                         </div>
                     </fieldset>
+                    </div>
+                    
+                    <div class="align-content-center my-2">
+                        <button id="price" class="btn btn-secondary">120$</button>
+                        <button type="submit" name="buy" class="btn btn-secondary">Buy Now</button>
+                        </form>
                     </div>
                 </div>
             </div>

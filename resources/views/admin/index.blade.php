@@ -33,10 +33,9 @@
                                     <td>{{$pizza->type}}</td>
                                     <td>{{$pizza->price}}$</td>
                                     <td>
-
-                                        @php if(($pizza->payment) == "0"): @endphp
+                                        @php if(($pizza->payment) == "1"): @endphp
                                             <a href="{{url('/pizzas/payment-update',$pizza->id)}}" class="btn btn-success btn-sm">Paid</a>
-                                        @php elseif(($pizza->payment) == "1"): @endphp
+                                        @php elseif(($pizza->payment) == "0"): @endphp
                                             <a href="{{url('/pizzas/payment-update',$pizza->id)}}" class="btn btn-danger btn-sm">Unpaid</a>
                                         @php endif; @endphp
                                     </td>

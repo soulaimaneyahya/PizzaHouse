@@ -1,47 +1,47 @@
-body {
+body{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-
-footer {
+footer{
   position: fixed;
   background: #eee;
   padding: 15px;
   text-align: center;
-  width: 100%;
-  bottom: 0;
+  width:100%;
+  bottom:0;
+}
+.title{
+  text-transform:uppercase;
+  font-weight:bold;
 }
 
-.title {
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.btn-primary {
+.btn-primary{
   background: rgba(50, 50, 255, 0.103) !important;
-  color: #00009e !important;
-  border: none !important;
+  color: rgb(0, 0, 158) !important;
+  border:none !important;
   outline: none !important;
 }
 
-.btn-success {
+.btn-success{
   background: rgba(50, 255, 84, 0.103) !important;
-  color: #259e00 !important;
-  border: none !important;
+  color: rgb(37, 158, 0) !important;
+  border:none !important;
   outline: none !important;
 }
 
-.btn-danger {
+.btn-danger{
   background: rgba(255, 50, 50, 0.103) !important;
-  color: #9e0000 !important;
-  border: none !important;
+  color: rgb(158, 0, 0) !important;
+  border:none !important;
   outline: none !important;
 }
-
-.btn-secondary {
+.btn-secondary{
   background: rgba(66, 66, 66, 0.103) !important;
-  color: #4e4e4e !important;
-  border: none !important;
+  color: rgb(78, 78, 78) !important;
+  border:none !important;
   outline: none !important;
+}
+.container {
+  max-width: 900px;
 }

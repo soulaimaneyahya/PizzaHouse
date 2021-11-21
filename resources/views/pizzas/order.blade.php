@@ -73,9 +73,9 @@
                             </div>
                             <div class="col my-2">
                                 <select name="type" class="form-select type" id="type" required>
-                                    <option value="1">small</option>
+                                    <option value="1">Small</option>
                                     <option value="2" selected>Medium</option>
-                                    <option value="3">big</option>
+                                    <option value="3">Large</option>
                                 </select>
                             </div>
                         </div>

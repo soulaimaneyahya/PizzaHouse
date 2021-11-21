@@ -14,10 +14,6 @@ class PizzahouseController extends Controller
         $pizzas = pizzahouse::latest()->get();
         return view('admin.index',['pizzas' => $pizzas]);
     }
-    public function details($id){
-        $pizzas = pizzahouse::findOrFail($id);
-        return view('admin.details',['pizzas' => $pizzas]);
-    }
     public function order(){
         return view('pizzas.order');
     }

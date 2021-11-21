@@ -13,8 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     {{ __('You are logged in!') }}
+                    <h3 class="my-3">Welcome back <span class="text-muted" >{{ucwords( Auth::user()->name) }}</span></h3>
+                    <p><a href="{{ route('admin.index') }}" class="btn btn-secondary text-white"><i class="bi bi-clipboard-data"></i> &nbsp; Dashboard</a></p>
                 </div>
             </div>
         </div>

@@ -26,3 +26,31 @@ footer {
   font-weight: bold;
   font-size: 20px;
 }
+
+.btn-primary {
+  background: rgba(50, 50, 255, 0.103) !important;
+  color: #00009e !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.btn-success {
+  background: rgba(50, 255, 84, 0.103) !important;
+  color: #259e00 !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.btn-danger {
+  background: rgba(255, 50, 50, 0.103) !important;
+  color: #9e0000 !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.btn-secondary {
+  background: rgba(66, 66, 66, 0.103) !important;
+  color: #4e4e4e !important;
+  border: none !important;
+  outline: none !important;
+}

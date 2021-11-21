@@ -27,7 +27,7 @@
                             </thead>
                             <tbody>
                                 @foreach($pizzas as $pizza)
-                                <tr>
+                                <tr class="@php if(($pizza->cancel) == 1): echo 'trashed'; endif;  @endphp">
                                     <th scope="row">{{$pizza->id}}</th>
                                     <td>{{$pizza->name}}</td>
                                     <td>{{$pizza->city}}</td>

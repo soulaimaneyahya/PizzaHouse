@@ -48,3 +48,6 @@ ul{
 .container {
   max-width: 900px;
 }
+.table tbody .trashed{
+  background-image:repeating-linear-gradient(45deg,#fff,#fff 10px,#f6f6f6 0,#f6f6f6 20px)
+}

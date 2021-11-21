@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\pizzahouse;
-use App\Http\Requests\PizzaHouseRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\PizzaHouseRequest;
 
 class PizzahouseController extends Controller
 {
@@ -37,8 +37,7 @@ class PizzahouseController extends Controller
         DB::table('pizzahouses')->where('id',$id)->update($values);
         return redirect('/pizzas');
     }
-    function fulfilledUpdate($id)
-    {
+    function fulfilledUpdate($id){
         //get fulfilled with the help of pizza ID
         $pizza = DB::table('pizzahouses')
                     ->select('fulfilled')
@@ -57,18 +56,40 @@ class PizzahouseController extends Controller
         DB::table('pizzahouses')->where('id',$id)->update($values);
         return redirect('/pizzas');
     }
-    public function edit($id){
-    	$pizzas = pizzahouse::findOrFail($id);
-        return view('admin.edit',['pizzas' => $pizzas]);
+    function cancelUpdate($id){
+        //get cancel with the help of pizza ID
+        $pizza = DB::table('pizzahouses')
+                    ->select('cancel')
+                    ->where('id','=',$id)
+                    ->first();
+
+        //Check user cancel
+        if($pizza->cancel == '1'):
+            $cancel = '0';
+        else:
+            $cancel = '1';
+        endif;
+
+        //update pizza cancel
+        $values = array('cancel' => $cancel );
+        DB::table('pizzahouses')->where('id',$id)->update($values);
+        return redirect('/pizzas');
     }
     public function update(PizzaHouseRequest $request , $id){
         $pizza = pizzahouse::findorFail($id);
+        
         $pizza->name = request('name');
         $pizza->phone = request('phone');
         $pizza->city = request('city');
         $pizza->state = request('state');
+
         $pizza->save();
+
         return redirect('/pizzas/orders/' . $id . '/edit')->with('update','Update Customer');
+    }
+    public function edit($id){
+    	$pizzas = pizzahouse::findOrFail($id);
+        return view('admin.edit',['pizzas' => $pizzas]);
     }
     
     // Customer Side

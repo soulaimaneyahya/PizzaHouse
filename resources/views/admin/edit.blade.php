@@ -1,6 +1,3 @@
-<style>
-
-</style>
 @extends('layouts.app')
 
 @section('content')
@@ -16,7 +13,14 @@
                         <div class="card">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h6>Pizza ref #{{$pizzas->id}}</h6>
-                                <h6 class="btn-success px-2 py-1">{{$pizzas->price}}$</h6>
+                                <div class="align-items-center">
+                                    <h6 class="btn btn-success px-2 py-1 d-inline" style="cursor: auto">{{$pizzas->price}}$</h6>
+                                    @php if(($pizzas->cancel) == "0"): @endphp
+                                        <a href="{{url('/pizzas/cancel-update',$pizzas->id)}}" class="btn btn-secondary btn-sm px-2 py-1">Cancel Order</a>
+                                    @php elseif(($pizzas->cancel) == "1"): @endphp
+                                        <a class="btn btn-main btn-sm" style="cursor: auto">ORDER CLOSED</a>
+                                    @php endif; @endphp
+                                </div>
                             </div>
             
                             <div class="px-3 py-2">
@@ -73,7 +77,12 @@
                                             <a class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#customerInfos"><i class="bi bi-pencil-square"></i></a>
                                         </span>
                                     </div>
-                                    <ul class="CustomerInfos p-2" style="opacity: 0.6;">
+                                    @if($message = Session::get('update'))
+                                        <div class="alert alert-success my-2 p-2 text-center">
+                                            {{ $message }}
+                                        </div>
+                                    @endif
+                                    <ul class="CustomerInfos py-1 px-2" style="opacity: 0.6;">
                                         <li>{{ucwords($pizzas->name)}}</li>
                                         <li>{{$pizzas->phone}}</li>
                                         <li>{{ucwords($pizzas->city)}}</li>

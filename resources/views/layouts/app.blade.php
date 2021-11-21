@@ -22,7 +22,7 @@
 <nav class="navbar navbar-expand-md navbar-light pt-4 pb-4">
     <div class="container-xxl">
       <!-- navbar brand / title -->
-      <a class="navbar-brand" href="/home">
+      <a class="navbar-brand" href="/">
         <span class="text-secondary fw-bold">
             <h6>Made With ❤️ By <b>Soulaimane Yahya</b> - 2021</h6>
         </span>
@@ -48,6 +48,9 @@
                     </li>
                 @endif
             @else
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+            </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ Auth::user()->name }}

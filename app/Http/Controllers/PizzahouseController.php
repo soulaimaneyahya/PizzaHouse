@@ -61,14 +61,22 @@ class PizzahouseController extends Controller
     	$pizzas = pizzahouse::findOrFail($id);
         return view('admin.edit',['pizzas' => $pizzas]);
     }
-
+    public function update(PizzaHouseRequest $request , $id){
+        $pizza = pizzahouse::findorFail($id);
+        $pizza->name = request('name');
+        $pizza->phone = request('phone');
+        $pizza->city = request('city');
+        $pizza->state = request('state');
+        $pizza->save();
+        return redirect('/pizzas/orders/' . $id . '/edit')->with('update','Update Customer');
+    }
+    
     // Customer Side
     public function order(){
         return view('pizzas.order');
     }
     public function store(PizzaHouseRequest $request) {
         $pizza = new pizzahouse();
-
         $pizza->name = request('name');
         $pizza->phone = request('phone');
         $pizza->city = request('city');
@@ -88,6 +96,5 @@ class PizzahouseController extends Controller
     
         $pizza->save();
         return redirect('/order')->with('Thanks', 'Thanks for your order!');
-    
       }
 }

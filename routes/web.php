@@ -30,3 +30,4 @@ Route::GET('/pizzas', [PizzahouseController::class,'index'])->name('admin.index'
 Route::GET('/pizzas/payment-update/{id}', [PizzahouseController::class,'PaymentUpdate'])->where('id', '[0-9]+')->name('admin.PaymentUpdate')->middleware('auth');
 Route::GET('/pizzas/fulfilled-update/{id}', [PizzahouseController::class,'fulfilledUpdate'])->where('id', '[0-9]+')->name('admin.fulfilledUpdate')->middleware('auth');
 Route::GET('/pizzas/orders/{id}/edit', [PizzahouseController::class,'edit'])->name('admin.edit')->where('id', '[0-9]+')->middleware('auth');
+Route::PUT('/pizzas/orders/{id}/update', [PizzahouseController::class,'update'])->name('admin.update')->where('id', '[0-9]+')->middleware('auth');

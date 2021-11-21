@@ -14,7 +14,7 @@
                 <h5 class="sub-title mb-3 text-muted">Please enter your details below to complete your order</h5>
                 @endif
                 <form action="{{ route('pizzas.store') }}" method="POST" class="form mb-5">
-                    @CSRF
+                @CSRF
                 <div class="row justify-content-center ">
                     <div class="col-md-9">
                         <div class="row">

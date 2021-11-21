@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="d-inline">Edit Pizza Order #{{$pizzas->id}}</h5>
-                <a href="{{route('admin.index')}}" class="btn btn-secondary">Back</a>
+                <a href="{{route('admin.index')}}" class="btn btn-main">Back</a>
             </div>
             <div class="card-body">          
                 <div class="row justify-content-center">
@@ -19,7 +19,7 @@
                                 <h6 class="btn-success px-2 py-1">{{$pizzas->price}}$</h6>
                             </div>
             
-                            <div class="card p-2">
+                            <div class="px-3 py-2">
                                 <table class="table table-sm">
                                     <thead>
                                       <tr>
@@ -69,21 +69,65 @@
                                         <span>Customer Informations</span>
                                         <!-- tooltip -->
                                         <span class="tl" data-bs-placement="bottom" title="Edit Customer">
-                                            <a href="" class="btn btn-secondary"><i class="bi bi-pencil-square"></i></a>
+                                            <!-- Button trigger modal -->
+                                            <a class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#customerInfos"><i class="bi bi-pencil-square"></i></a>
                                         </span>
                                     </div>
-                                    <ul class="CustomerInfos p-3" style="opacity: 0.5;">
-                                        <li>{{$pizzas->name}}</li>
+                                    <ul class="CustomerInfos p-2" style="opacity: 0.6;">
+                                        <li>{{ucwords($pizzas->name)}}</li>
                                         <li>{{$pizzas->phone}}</li>
-                                        <li>{{$pizzas->city}}</li>
-                                        <li>{{$pizzas->state}}</li>
+                                        <li>{{ucwords($pizzas->city)}}</li>
+                                        <li>{{ucwords($pizzas->state)}}</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="customerInfos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                         <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Customer Informations</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <form action="{{ route('admin.update',$pizzas->id) }}" method="POST" class="form">
+                                @CSRF
+                                <input type="hidden" name="_method" value="PUT" />
+                                    <div class="justify-content-center p-2">
+                                        <div class="col">
+                                            <input type="text" name="name" class="form-control my-2 @if($errors->get('name')) is-invalid @endif" maxlength="30" id="name" placeholder="Name" value="{{ucwords($pizzas->name)}}"/>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" name="phone" class="form-control my-2 @if($errors->get('phone')) is-invalid @endif" maxlength="10" id="phone" placeholder="Phone" value="{{ucwords($pizzas->phone)}}"/>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" name="city" class="form-control my-2 @if($errors->get('city')) is-invalid @endif" maxlength="30" id="city" placeholder="City" value="{{ucwords($pizzas->city)}}"/>
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" name="state" class="form-control my-2 @if($errors->get('state')) is-invalid @endif" maxlength="30" id="state" placeholder="State" value="{{ucwords($pizzas->state)}}"/>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" name="EditCustomerInfos" class="btn btn-main">Save changes</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
+<script type="text/javascript">
+$(document).ready(function() {
+
+
+
+});
+</script>
 @endsection

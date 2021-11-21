@@ -38,6 +38,13 @@ ul{
   border:none !important;
   outline: none !important;
 }
+.btn-main{
+  background: rgba(66, 66, 66, 0.103) !important;
+  color: rgb(78, 78, 78) !important;
+  border:none !important;
+  font-weight: bold !important;
+  outline: none !important;
+}
 .container {
   max-width: 900px;
 }

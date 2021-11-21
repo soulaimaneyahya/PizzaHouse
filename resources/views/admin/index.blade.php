@@ -7,7 +7,7 @@
                 <div class="card mb-5">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="d-inline">Pizzas Orders</h5>
-                        <a href="{{route('home')}}"  class="btn btn-secondary">Back</a>
+                        <a href="{{route('home')}}"  class="btn btn-main">Back</a>
                     </div>
                     <div class="card-body px-4">
                         <table class="table">

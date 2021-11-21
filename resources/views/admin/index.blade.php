@@ -1,3 +1,4 @@
+<title>Pizza Orders - Pizza House</title>
 @extends('layouts.app')
 
 @section('content')

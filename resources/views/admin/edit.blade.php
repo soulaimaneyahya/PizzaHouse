@@ -1,9 +1,11 @@
+<title>Pizza Order #{{$pizzas->id}} - Pizza House</title>
+        
 @extends('layouts.app')
 
 @section('content')
     <div class="container">
         <div class="card">
-            <div class="card-header d-flex justify-content-between align-items-center">
+            <div class="card-header d-flex justify-content-between align-items-center @php if(($pizzas->cancel) == 1): echo 'trashed'; endif;  @endphp">
                 <h5 class="d-inline">Edit Pizza Order #{{$pizzas->id}}</h5>
                 <a href="{{route('admin.index')}}" class="btn btn-main">Back</a>
             </div>
@@ -58,8 +60,31 @@
                         </div>
                         <div class="card my-3">
                             <div class="card-header">{{ __('Pizza details') }}</div>
-            
                             <div class="card-body">
+                                <table class="table table-sm">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Base</th>
+                                        <th scope="col">Toppings</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>{{ucwords($pizzas->name)}}</td>
+                                        <td>{{ucwords($pizzas->type)}}</td>
+                                        <td>{{ucwords($pizzas->base)}}</td>
+                                        <td>
+                                            @if($pizzas->toppings)
+                                                @foreach($pizzas->toppings as $topping)
+                                                <p class="m-0">{{ $topping }}</p>
+                                                @endforeach
+                                            @endif
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
                             </div>
                         </div>
                     </div>

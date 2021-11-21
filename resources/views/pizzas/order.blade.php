@@ -85,25 +85,25 @@
                     <fieldset>
                         <label class="my-2"><h3>Extra toppings</h3></label>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="toppings[]" value="1" id="defaultCheck1">
+                            <input type="checkbox" class="form-check-input" name="toppings[]" value="Mushrooms" id="defaultCheck1">
                             <label class="form-check-label" for="defaultCheck1">
                               Mushrooms
                             </label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="toppings[]" value="2" id="defaultCheck2">
+                            <input type="checkbox" class="form-check-input" name="toppings[]" value="Peppers" id="defaultCheck2">
                             <label class="form-check-label" for="defaultCheck2">
                               Peppers
                             </label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="toppings[]" value="3" id="defaultCheck3">
+                            <input type="checkbox" class="form-check-input" name="toppings[]" value="Garlic" id="defaultCheck3">
                             <label class="form-check-label" for="defaultCheck3">
                               Garlic
                             </label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="toppings[]" value="4" id="defaultCheck4">
+                            <input type="checkbox" class="form-check-input" name="toppings[]" value="Olives" id="defaultCheck4">
                             <label class="form-check-label" for="defaultCheck4">
                               Olives
                             </label>

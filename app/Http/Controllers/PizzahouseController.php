@@ -16,7 +16,14 @@ class PizzahouseController extends Controller
 
         return view('admin.index',['pizzas' => $pizzas]);
     }
-
+    public function edit($id){
+    	$pizzas = pizzahouse::join('type', 'pizzahouses.type', '=', 'type.id')
+        ->join('base', 'base.id', '=', 'pizzahouses.base')
+        ->where('pizzahouses.id','=',$id)
+        ->get(['pizzahouses.*', 'type.type', 'base.base']);
+        ;
+        return view('admin.edit',['pizzas' => $pizzas[0]]);
+    }
     function PaymentUpdate($id)
     {
         //get payment with the help of pizza ID
@@ -87,11 +94,7 @@ class PizzahouseController extends Controller
 
         return redirect('/pizzas/orders/' . $id . '/edit')->with('update','Update Customer');
     }
-    public function edit($id){
-    	$pizzas = pizzahouse::findOrFail($id);
-        return view('admin.edit',['pizzas' => $pizzas]);
-    }
-    
+
     // Customer Side
     public function order(){
         return view('pizzas.order');

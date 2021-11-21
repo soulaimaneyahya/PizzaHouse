@@ -1,2 +1,2 @@
 ## Project with laravel: pizza ordering web application
-<img src="/img/1.jpg" alt="Pizza House" />
+<img src="file:///C:/wamp64/www/netninja/PizzaHouse/public/img/1.JPG" alt="Pizza House" />

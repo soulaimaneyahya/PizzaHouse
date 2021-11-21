@@ -23,3 +23,8 @@ Route::POST('/order', [PizzahouseController::class,'store'])->name('pizzas.store
 //Admin Panel
 Route::GET('/pizzas', [PizzahouseController::class,'index'])->name('admin.index');
 Route::GET('/pizzas/{id}', [PizzahouseController::class,'details'])->where('id', '[0-9]+')->name('admin.details');
+Auth::routes(
+    ['register'=>false]
+);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

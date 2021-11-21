@@ -21,6 +21,7 @@ class CreatePizzahousesTable extends Migration
             $table->string('city',30);
             $table->string('state',30);
             $table->string('phone',10);
+            $table->json('toppings')->nullable();
             $table->decimal('price',8,2);
             $table->datetime('deleted_at')->nullable();
             $table->timestamps();

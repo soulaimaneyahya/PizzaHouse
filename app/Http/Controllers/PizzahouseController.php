@@ -30,6 +30,7 @@ class PizzahouseController extends Controller
         $pizza->state = request('state');
         $pizza->base = request('base');
         $pizza->type = request('type');
+        $pizza->toppings = request('toppings');
 
         // get price depend on quantity type
         if(request('type') === '1' ):

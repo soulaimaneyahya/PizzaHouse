@@ -1,25 +1,28 @@
-body{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-footer{
-    position: fixed;
-    background: #eee;
-    padding: 15px;
-    text-align: center;
-    width:100%;
-    bottom:0;
+
+footer {
+  position: fixed;
+  background: #eee;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
 }
-.title{
-    text-transform:uppercase;
-    font-weight:bold;
+
+.title {
+  text-transform: uppercase;
+  font-weight: bold;
 }
-#price{
-    background-color: rgba(94, 94, 94, 0.11);
-    padding: 5px 14px;
-    border-radius: 3px;
-    color: rgb(75, 75, 75);
-    font-weight: bold;
-    font-size: 20px;
+
+#price {
+  background-color: rgba(94, 94, 94, 0.11);
+  padding: 4px 14px;
+  border-radius: 3px;
+  color: #4b4b4b;
+  font-weight: bold;
+  font-size: 20px;
 }

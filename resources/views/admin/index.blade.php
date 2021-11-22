@@ -57,7 +57,7 @@
                                         </span>
                                         <!-- tooltip -->
                                         <span class="tl" data-bs-placement="bottom" title="Print Order">
-                                            <button type="button" class="btn btn-secondary btn-sm"><i class="bi bi-printer"></i></button>
+                                            <a href="{{route('admin.print',$pizza->id)}}" class="btn btn-secondary btn-sm"><i class="bi bi-printer"></i></a>
                                         </span>
                                     </td>
                                 </tr>

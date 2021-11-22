@@ -17,7 +17,8 @@ class PizzahouseController extends Controller
         return view('admin.index',['pizzas' => $pizzas]);
     }
     public function edit($id){
-    	$pizzas = pizzahouse::join('type', 'pizzahouses.type', '=', 'type.id')
+        $pizzas = pizzahouse::findorFail($id)
+    	->join('type', 'pizzahouses.type', '=', 'type.id')
         ->join('base', 'base.id', '=', 'pizzahouses.base')
         ->where('pizzahouses.id','=',$id)
         ->get(['pizzahouses.*', 'type.type', 'base.base']);
@@ -93,6 +94,15 @@ class PizzahouseController extends Controller
         $pizza->save();
 
         return redirect('/pizzas/orders/' . $id . '/edit')->with('update','Update Customer');
+    }
+    public function print($id){
+        $pizzas = pizzahouse::findorFail($id)
+    	->join('type', 'pizzahouses.type', '=', 'type.id')
+        ->join('base', 'base.id', '=', 'pizzahouses.base')
+        ->where('pizzahouses.id','=',$id)
+        ->get(['pizzahouses.*', 'type.type', 'base.base']);
+        ;
+        return view('admin.print',['pizzas' => $pizzas[0]]);
     }
 
     // Customer Side

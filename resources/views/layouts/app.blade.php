@@ -17,7 +17,6 @@
     </head>
     <body>
 
-
 <!-- navbar -->
 <nav class="navbar navbar-expand-md navbar-light pt-4 pb-4">
     <div class="container-xxl">

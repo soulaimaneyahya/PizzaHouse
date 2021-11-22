@@ -24,17 +24,17 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center @php if(($pizzas->cancel) == 1): echo 'trashed'; endif;  @endphp">
             <h5 class="d-inline">Pizza House #{{$pizzas->id}}</h5>
-            <img src="" alt="Pizza House" />
+            <img src="/img/pizza-house.png" width="70" alt="Pizza House" />
         </div>
         <div class="card-body">
             <div class="card my-2">
                 <div class="card-body">
                     <div class="align-items-center">
-                        <h6 class="btn btn-secondary px-2 py-1 d-inline" style="cursor: auto">{{$pizzas->price}}$</h6>
+                        <p class="btn btn-secondary px-2 py-1 d-inline" style="cursor: auto">{{$pizzas->price}}$</p>
                         @php if(($pizzas->cancel) == "0"): @endphp
-                            <p class="btn btn-secondary btn-sm px-2 py-1 d-inline" style="cursor: auto">Order Approved</p>
+                            <p class="btn btn-secondary px-2 py-1 d-inline" style="cursor: auto">Order Approved</p>
                         @php elseif(($pizzas->cancel) == "1"): @endphp
-                            <p class="btn btn-main btn-sm" style="cursor: auto">ORDER CLOSED</p>
+                            <p class="btn btn-main px-2 py-1 d-inline" style="cursor: auto">ORDER CLOSED</p>
                         @php endif; @endphp
                     </div>
                 </div>
